@@ -24,8 +24,14 @@ app.get('/api/posts', function(req, res) {
 });
 
 // Get Single post
-app.get('/api/post', function(req, res) {
-    res.send('SINGLE POST');
+app.get('/api/post/:_id', function(req, res) {
+    Post.getPostById(req.params._id, function(err, post) {
+        if (err) {
+            throw err;
+        }
+        
+        res.json(post);
+    });
 });
 
 

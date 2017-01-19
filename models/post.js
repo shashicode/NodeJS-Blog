@@ -35,3 +35,8 @@ var Posts =  module.exports = mongoose.model('Post', postSchema);
 module.exports.getPosts = function(callback, limit) {
     Posts.find(callback).limit(limit);
 }
+
+// Get single post
+module.exports.getPostById = function(_id, callback) {
+    Posts.findById(_id, callback);
+}
